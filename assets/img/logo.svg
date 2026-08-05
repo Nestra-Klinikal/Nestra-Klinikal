@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Nestra Klinikal logo">
+  <rect x="4" y="4" width="112" height="112" rx="22" fill="#0a1a3c"/>
+  <path d="M30 34 L30 86 L42 86 L42 54 L66 86 L80 86 L80 34 L68 34 L68 66 L44 34 Z" fill="#e31c4d"/>
+  <rect x="86" y="34" width="10" height="52" rx="2" fill="#2f9bf0"/>
+  <path d="M96 60 L112 34 H99 L86 58 L100 86 H113 Z" fill="#2f9bf0"/>
+</svg>
