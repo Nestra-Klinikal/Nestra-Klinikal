@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neutrals carry a navy hue bias so greys sit with the brand rather than beside it. */
+    --background: 0 0% 100%;
+    --foreground: 220 45% 12%;
+
+    --surface: 220 33% 97%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 45% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 45% 12%;
+
+    /* Brand navy — authority, the ground of the identity. */
+    --primary: 220 67% 17%;
+    --primary-foreground: 220 40% 98%;
+
+    /*
+     * The navy *surface* used by the hero, footer and deep sections.
+     * Deliberately separate from --primary: an action colour is expected to
+     * invert between themes, but a brand ground is not. Keeping them apart is
+     * what stops the hero flipping to light in dark mode.
+     */
+    --brand: 220 67% 15%;
+    --brand-foreground: 220 40% 98%;
+
+    --secondary: 220 33% 96%;
+    --secondary-foreground: 220 45% 18%;
+
+    --muted: 220 30% 95%;
+    --muted-foreground: 220 13% 42%;
+
+    /* Clinical blue — the interactive accent. */
+    --accent: 208 76% 44%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Signal red from the logo, reserved for emphasis, never for large fields. */
+    --signal: 345 79% 47%;
+    --signal-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 22% 89%;
+    --input: 220 22% 87%;
+    --ring: 208 76% 44%;
+
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 220 52% 7%;
+    --foreground: 220 30% 95%;
+
+    --surface: 220 44% 11%;
+    --card: 220 44% 10%;
+    --card-foreground: 220 30% 95%;
+    --popover: 220 44% 10%;
+    --popover-foreground: 220 30% 95%;
+
+    --primary: 220 35% 92%;
+    --primary-foreground: 220 55% 9%;
+
+    /* Stays dark, and drops slightly below the page ground so the hero and
+       footer still read as distinct panels rather than merging into the page. */
+    --brand: 220 60% 5%;
+    --brand-foreground: 220 30% 95%;
+
+    --secondary: 220 34% 15%;
+    --secondary-foreground: 220 30% 94%;
+
+    --muted: 220 32% 15%;
+    --muted-foreground: 220 15% 68%;
+
+    /* Lifted so the accent keeps contrast on a dark ground. */
+    --accent: 208 82% 62%;
+    --accent-foreground: 220 55% 9%;
+
+    --signal: 345 85% 65%;
+    --signal-foreground: 220 55% 9%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 220 55% 9%;
+
+    --border: 220 30% 20%;
+    --input: 220 30% 22%;
+    --ring: 208 82% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Digits that stack in columns should not shift width between values. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .prose-nk {
+    @apply max-w-[65ch] text-[1.0625rem] leading-[1.75] text-muted-foreground;
+  }
+
+  .prose-nk :where(h2) {
+    @apply mt-12 mb-4 text-display-sm text-foreground;
+  }
+
+  .prose-nk :where(h3) {
+    @apply mt-8 mb-3 text-xl font-semibold text-foreground;
+  }
+
+  .prose-nk :where(p) {
+    @apply mb-5;
+  }
+
+  .prose-nk :where(ul) {
+    @apply mb-5 list-disc space-y-2 pl-6;
+  }
+
+  .prose-nk :where(ol) {
+    @apply mb-5 list-decimal space-y-2 pl-6;
+  }
+
+  .prose-nk :where(a) {
+    @apply font-medium text-accent underline underline-offset-4;
+  }
+
+  .prose-nk :where(strong) {
+    @apply font-semibold text-foreground;
+  }
+
+  /* Any wide child scrolls inside its own container so the page body never does. */
+  .scroll-x {
+    @apply -mx-5 overflow-x-auto px-5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
