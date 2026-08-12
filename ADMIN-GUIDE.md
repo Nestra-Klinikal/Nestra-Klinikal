@@ -54,8 +54,35 @@ In Vercel (where the site is hosted), open the project, go to **Settings**, then
 Then redeploy the site once. From that point on, everything in this guide works
 and no further redeploys are needed.
 
-**Step 4. Fill in Site settings.**
-Log in (section 2), open **Site settings**, and fill in the WhatsApp number,
+**Step 4. Load the starting content.**
+The website ships with its programmes, testimonials, partners and questions
+already written. This step copies them into your new content system so you are
+editing real entries rather than starting from an empty screen.
+
+On a computer with the project code, create a file called `.env.local` in the
+project folder containing:
+
+```
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id-from-step-1
+SANITY_API_WRITE_TOKEN=your-token-from-step-2
+```
+
+Then run:
+
+```
+npm install
+npm run seed
+```
+
+You should see `✓ Wrote 17 documents.` That is 6 programmes, 2 testimonials,
+2 partners, 6 questions and your site settings.
+
+The seeder refuses to run if the content system already has content in it, so
+it cannot accidentally wipe your work later. To preview what it would write
+without changing anything, run `npm run seed -- --dry-run`.
+
+**Step 5. Check your Site settings.**
+Log in (section 2), open **Site settings**, and confirm the WhatsApp number,
 phone number, email address and office address. See section 8.
 
 ---

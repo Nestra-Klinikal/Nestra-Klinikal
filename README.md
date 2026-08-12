@@ -56,6 +56,8 @@ the same queries, with no code change.
 | `npm start` | Serve the production build |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
+| `npm run seed` | Load the starting content into a new Sanity dataset |
+| `npm run seed -- --dry-run` | Validate the seed documents without connecting |
 | `npm run test:e2e` | Playwright end-to-end tests |
 
 Running the tests requires a production build first:
